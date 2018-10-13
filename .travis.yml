@@ -5,7 +5,7 @@ install:
 script:
 - hexo g
 after_script:
-- scp -o stricthostkeychecking=no  -r ./public/* root@140.143.202.200:/usr/share/nginx/html
+- scp -o stricthostkeychecking=no  -r ./public/* root@140.143.202.200:/usr/share/nginx/html/travis
 - cd ./public
 - git init
 - git config user.name "WangGenzhen"
