@@ -12,7 +12,8 @@ language:
 timezone:
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://WangGenzhen.github.io
+url: https://github.com/WangGenzhen/travis_test.git
+
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -78,5 +79,5 @@ theme: black-blue
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:WangGenzhen/WangGenzhen.github.io.git
+  repository: git@github.com/WangGenzhen/travis_test.git
   branch: master 
