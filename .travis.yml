@@ -11,7 +11,7 @@ script:
 - hexo g
 after_script:
 - cd ./public
-- scp -o stricthostkeychecking=no -P  -r ./public/* root@140.143.202.200:/usr/share/nginx/html/build
+- scp -o stricthostkeychecking=no -P  -r ./public root@140.143.202.200:/usr/share/nginx/html/
 - git init
 - git config user.name "WangGenzhen"
 - git config user.email "1280210282@qq.com"
