@@ -17,7 +17,7 @@ categories: note
 ###### h6  
 ```
 > 注：#后面保持空格sdfsfs
-# 2.目录生成asdfsdkjlkjffdkfjddsdsdfsfskdfsdfj
+# 2.目录生成asdfsdkjlkjffdkfjddsdsdfsfs
 sdfsdfs
 ```
 [TOC]
