@@ -2,29 +2,46 @@ language: node_js  #设置语言
 
 node_js: stable  #设置相应的版本
 
-# cache:
-#     apt: true
-#     directories:
-#         - node_modules # 缓存不经常更改的内容
+cache:
+    apt: true
+    directories:
+        - node_modules # 缓存不经常更改的内容
 
 # before_install:
 #     - export TZ='Asia/Shanghai' # 更改时区
 
+before_install:
+- git config --global user.name "wanggenzhen"
+- git config --global user.email "1280210282@qq.com"
+# 由于使用了yarn，所以需要下载，如不用yarn这两行可以删除
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH=$HOME/.yarn/bin:$PATH
+- npm install -g hexo-cli
+
 install:
+  - yarn
   - npm install  #安装hexo及插件
 
 script:
   - hexo clean  #清除
   - hexo g  #生成
 
-after_script:
-  - cd ./public
-  - git init
-  - git config user.name "wanggenzhen"
-  - git config user.email "1280210282@qq.com"
-  - git add .
-  - git commit -m "travis 部署测试"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+after_success:
+- cd ./public
+- git init
+- git add --all .
+- git commit -m "Travis CI Auto Builder"
+# 这里的 REPO_TOKEN 即之前在 travis 项目的环境变量里添加的
+- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
+# after_script:
+#   - cd ./public
+#   - git init
+#   - git config user.name "wanggenzhen"
+#   - git config user.email "1280210282@qq.com"
+#   - git add .
+#   - git commit -m "travis 部署测试"
+#   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
 # after_script:
 #   - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址
