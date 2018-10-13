@@ -1,15 +1,12 @@
 language: node_js
 node_js: stable
-before_install:
-- openssl aes-256-cbc -K $encrypted_0f0742040902_key -iv $encrypted_0f0742040902_iv
-  -in travis_rsa.enc -out ~/.ssh/travis_rsa -d
 install:
 - npm install
 script:
 - hexo g
 after_script:
 - cd ./public
-- scp -o stricthostkeychecking=no   -r ./public root@140.143.202.200:/usr/share/nginx/html/
+# - scp -o stricthostkeychecking=no   -r ./public root@140.143.202.200:/usr/share/nginx/html/
 - git init
 - git config user.name "WangGenzhen"
 - git config user.email "1280210282@qq.com"
@@ -22,3 +19,4 @@ branches:
 env:
   global:
   - GH_REF: github.com/WangGenzhen/WangGenzhen.github.io.git
+
