@@ -1,5 +1,5 @@
 ---
-title: ES5核心技巧
+title: ES5核心技巧   
 date: 2018-08-14 23:05:41
 tags: ES5
 categories: note
